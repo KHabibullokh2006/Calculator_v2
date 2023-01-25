@@ -1,5 +1,6 @@
 package uz.itschool.myapplication
 
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,15 +24,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var point:Button
     private lateinit var clear:Button
+    private lateinit var bcks:Button
 
     private lateinit var div:Button
     private lateinit var multp:Button
+    private lateinit var plus:Button
+    private lateinit var minus:Button
+    private lateinit var equal:Button
 
     private lateinit var oper:TextView
     private lateinit var res:TextView
 
     private var ispoint = true
     private var isSymbol = false
+    private var isActive = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +55,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         zero.setOnClickListener(this)
 
         point.setOnClickListener{
-            if (ispoint){
+            if (ispoint && oper.text.isNotEmpty()){
                 oper.text = oper.text.toString() + "."
                 ispoint = false
             }
@@ -61,6 +67,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             isSymbol = false
         }
 
+        bcks.setOnClickListener {
+            if (oper.text.isNotEmpty()){
+                oper.text = oper.text.dropLast(1)
+                ispoint = true
+                isSymbol = false
+                isActive = false
+            }
+        }
+
         div.setOnClickListener {
             addSymbol("/")
         }
@@ -68,6 +83,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         multp.setOnClickListener {
             addSymbol("x")
         }
+
+        plus.setOnClickListener {
+            addSymbol("+")
+        }
+
+        minus.setOnClickListener {
+            addSymbol("-")
+        }
+
+//        equal.setOnClickListener {
+//            calculate()
+//        }
+
     }
 
     fun initUI(){
@@ -84,9 +112,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         point = findViewById(R.id.point)
         clear = findViewById(R.id.clear_text)
+        bcks = findViewById(R.id.backspace)
 
         div = findViewById(R.id.div)
         multp = findViewById(R.id.multiply)
+        minus = findViewById(R.id.minus)
+        plus = findViewById(R.id.plus)
+        equal = findViewById(R.id.equal)
 
         oper = findViewById(R.id.operand)
         res = findViewById(R.id.result)
@@ -101,20 +133,39 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         else{
             oper.text = btn.text
         }
-        res.text = calculate()
+//        res.text = calculate()
         isSymbol = true
 
     }
 
-    private fun calculate(): String {
-        var r = "123"
-        return r
+//    private fun calculate(): String {
+//        var result_list = createArray(oper.text.toString())
+//        hisobla(result_list)
+//        lateinit var r:String
+//
+//    }
+
+    private fun hisobla(resultList: MutableList<Any>) {
+        var list = resultList
+        var first = 0.0
+        var second = 0.0
+        if (list.size >= 3){
+            for (i in list.indices) {
+                if (list[i] == '/' || list[i] == 'x'){
+                    first = list[i-1] as Double
+                    second = list[i-1] as Double
+                }
+            }
+        }
+
     }
 
+    @SuppressLint("SetTextI18n")
     fun addSymbol(symbol:String){
         if (isSymbol){
             oper.text = oper.text.toString() + symbol
             isSymbol = false
+            ispoint = true
         }else{
             if (oper.text != "0"){
                 oper.text = oper.text.substring(0,oper.text.length-1) + symbol
@@ -122,4 +173,29 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         ispoint = true
     }
+
+    fun createArray(s:String):MutableList<Any>{
+        var list = mutableListOf<Any>()
+        var temp = ""
+        for (i in s){
+            if (i.isDigit() || i == '.'){
+                temp+=i
+            }
+            else{
+                list.add(temp)
+                list.add(i)
+                temp = ""
+            }
+        }
+        if (temp.isEmpty()){
+            list.add(temp)
+        }
+
+        Log.d("TAG", list.toString())
+
+        return list
+    }
 }
+
+
+

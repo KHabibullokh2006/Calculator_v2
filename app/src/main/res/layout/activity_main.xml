@@ -26,7 +26,7 @@
             android:layout_weight="1"
             android:text="6.291/5"
             android:textAlignment="textEnd"
-            android:textColor="#66FFFFFF"
+            android:textColor="#66000000"
             android:textSize="30dp" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:layout_weight="1"
             android:text="1,258.2"
             android:textAlignment="textEnd"
-            android:textColor="#FFFFFF"
+            android:textColor="#000"
             android:textSize="76dp" />
 
         <LinearLayout
@@ -54,7 +54,7 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#4E505F" />
+                app:backgroundTint="#D2D3DA" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="71dp"
@@ -63,7 +63,7 @@
                 android:layout_weight="1"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#4E505F"
+                app:backgroundTint="#D2D3DA"
                 app:icon="@drawable/plus" />
 
             <com.google.android.material.button.MaterialButton
@@ -75,7 +75,7 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#4E505F" />
+                app:backgroundTint="#D2D3DA" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/div"
@@ -105,7 +105,7 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#2E2F38"/>
+                app:backgroundTint="#FFFFFF"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/eight"
@@ -117,7 +117,7 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#2E2F38"/>
+                app:backgroundTint="#FFFFFF"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/nine"
@@ -129,7 +129,7 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#2E2F38" />
+                app:backgroundTint="#FFFFFF" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/multiply"
@@ -157,7 +157,7 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#2E2F38" />
+                app:backgroundTint="#FFFFFF" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/five"
@@ -169,7 +169,7 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#2E2F38" />
+                app:backgroundTint="#FFFFFF" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/six"
@@ -181,10 +181,10 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#2E2F38" />
+                app:backgroundTint="#FFFFFF" />
 
             <com.google.android.material.button.MaterialButton
-
+                android:id="@+id/minus"
                 android:layout_width="71dp"
                 android:layout_height="72dp"
                 android:layout_weight="1"
@@ -209,7 +209,7 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#2E2F38" />
+                app:backgroundTint="#FFFFFF" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/two"
@@ -221,7 +221,7 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#2E2F38" />
+                app:backgroundTint="#FFFFFF" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/three"
@@ -233,9 +233,10 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#2E2F38" />
+                app:backgroundTint="#FFFFFF" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/plus"
                 android:layout_width="71dp"
                 android:layout_height="72dp"
                 android:layout_weight="1"
@@ -260,7 +261,7 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#2E2F38" />
+                app:backgroundTint="#FFFFFF" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/zero"
@@ -272,19 +273,21 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#2E2F38" />
+                app:backgroundTint="#FFFFFF" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/backspace"
                 android:layout_width="71dp"
                 android:layout_height="72dp"
                 android:layout_marginRight="16dp"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="32sp"
-                app:backgroundTint="#2E2F38"
+                app:backgroundTint="#FFFFFF"
                 app:icon="@drawable/delete" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/equal"
                 android:layout_width="71dp"
                 android:layout_height="72dp"
                 android:layout_weight="1"
