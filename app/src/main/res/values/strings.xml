@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="point">.</string>
+    <string name="plus">+</string>
+    <string name="equal">=</string>
+    <string name="minus">-</string>
 </resources>

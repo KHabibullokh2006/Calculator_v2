@@ -1,15 +1,14 @@
 package uz.itschool.myapplication
 
 import android.annotation.SuppressLint
-import android.content.ContentValues.TAG
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener{
 
     private lateinit var one:Button
     private lateinit var two:Button
@@ -35,7 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var oper:TextView
     private lateinit var res:TextView
 
-    private var ispoint = true
+    private var isPoint = true
     private var isSymbol = false
     private var isActive = true
 
@@ -55,22 +54,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         zero.setOnClickListener(this)
 
         point.setOnClickListener{
-            if (ispoint && oper.text.isNotEmpty()){
+            if (isPoint && oper.text.isNotEmpty()){
                 oper.text = oper.text.toString() + "."
-                ispoint = false
+                isPoint = false
             }
         }
 
         clear.setOnClickListener {
             oper.text = "0"
-            ispoint = true
+            isPoint = true
             isSymbol = false
         }
 
         bcks.setOnClickListener {
             if (oper.text.isNotEmpty()){
                 oper.text = oper.text.dropLast(1)
-                ispoint = true
+                isPoint = true
                 isSymbol = false
                 isActive = false
             }
@@ -92,9 +91,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             addSymbol("-")
         }
 
-//        equal.setOnClickListener {
-//            calculate()
-//        }
+        equal.setOnClickListener {
+            calculate()
+            oper.text = res.text.toString()
+            isPoint = true
+
+
+        }
 
     }
 
@@ -132,31 +135,54 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         else{
             oper.text = btn.text
+            Log.d("AAA", btn.text.toString())
         }
-//        res.text = calculate()
+        res.text = calculate()
         isSymbol = true
 
     }
 
-//    private fun calculate(): String {
-//        var result_list = createArray(oper.text.toString())
-//        hisobla(result_list)
-//        lateinit var r:String
-//
-//    }
+    private fun calculate(): String {
+        var resList = createArray(oper.text.toString())
+        var i = 0
+        var temp = 0f
 
-    private fun hisobla(resultList: MutableList<Any>) {
-        var list = resultList
-        var first = 0.0
-        var second = 0.0
-        if (list.size >= 3){
-            for (i in list.indices) {
-                if (list[i] == '/' || list[i] == 'x'){
-                    first = list[i-1] as Double
-                    second = list[i-1] as Double
-                }
+
+        while (resList.contains('x') || resList.contains('/') || resList.contains('+') || resList.contains('-')){
+            if (resList[i] == 'x'){
+                temp = resList[i-1].toString().toFloat() * resList[i+1].toString().toFloat()
+                resList.add(i-1,temp)
+                resList.removeAt(i)
+                resList.removeAt(i)
+                i -= 2
             }
+            if (resList[i] == '/'){
+                temp = resList[i-1].toString().toFloat() / resList[i+1].toString().toFloat()
+                resList.add(i-1,temp)
+                resList.removeAt(i)
+                resList.removeAt(i)
+                i -= 2
+            }
+            if (resList[i] == '+'){
+                temp = resList[i-1].toString().toFloat() + resList[i+1].toString().toFloat()
+                resList.add(i-1,temp)
+                resList.removeAt(i)
+                resList.removeAt(i)
+                i -= 2
+            }
+            if (resList[i] == '-'){
+                temp = resList[i-1].toString().toFloat() - resList[i+1].toString().toFloat()
+                resList.add(i-1,temp)
+                resList.removeAt(i)
+                resList.removeAt(i)
+                i -= 2
+            }
+            i++
+            temp = 0f
         }
+
+
+        return temp.toString()
 
     }
 
@@ -165,13 +191,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (isSymbol){
             oper.text = oper.text.toString() + symbol
             isSymbol = false
-            ispoint = true
+            isPoint = true
         }else{
             if (oper.text != "0"){
                 oper.text = oper.text.substring(0,oper.text.length-1) + symbol
             }
         }
-        ispoint = true
+        isPoint = true
     }
 
     fun createArray(s:String):MutableList<Any>{

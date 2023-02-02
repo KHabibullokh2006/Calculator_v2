@@ -27,7 +27,7 @@
             android:text="6.291/5"
             android:textAlignment="textEnd"
             android:textColor="#66000000"
-            android:textSize="30dp" />
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/result"
@@ -37,7 +37,7 @@
             android:text="1,258.2"
             android:textAlignment="textEnd"
             android:textColor="#000"
-            android:textSize="76dp" />
+            android:textSize="76sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,7 +54,8 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#D2D3DA" />
+                app:backgroundTint="#D2D3DA"
+                tools:ignore="NestedWeights" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="71dp"
@@ -69,7 +70,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="71dp"
                 android:layout_height="72dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:text="%"
                 android:textAlignment="center"
@@ -105,7 +106,8 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#FFFFFF"/>
+                app:backgroundTint="#FFFFFF"
+                tools:ignore="NestedWeights" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/eight"
@@ -123,7 +125,7 @@
                 android:id="@+id/nine"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:text="9"
                 android:textAlignment="center"
@@ -157,7 +159,8 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#FFFFFF" />
+                app:backgroundTint="#FFFFFF"
+                tools:ignore="NestedWeights" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/five"
@@ -175,7 +178,7 @@
                 android:id="@+id/six"
                 android:layout_width="71dp"
                 android:layout_height="72dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:text="6"
                 android:textAlignment="center"
@@ -188,7 +191,7 @@
                 android:layout_width="71dp"
                 android:layout_height="72dp"
                 android:layout_weight="1"
-                android:text="-"
+                android:text="@string/minus"
                 android:textSize="32sp"
                 android:textColor="@color/black"
                 app:backgroundTint="#4B5EFC" />
@@ -209,7 +212,8 @@
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#FFFFFF" />
+                app:backgroundTint="#FFFFFF"
+                tools:ignore="NestedWeights" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/two"
@@ -227,7 +231,7 @@
                 android:id="@+id/three"
                 android:layout_width="71dp"
                 android:layout_height="72dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:text="3"
                 android:textAlignment="center"
@@ -240,7 +244,7 @@
                 android:layout_width="71dp"
                 android:layout_height="72dp"
                 android:layout_weight="1"
-                android:text="+"
+                android:text="@string/plus"
                 android:textSize="32sp"
                 android:textColor="@color/black"
                 app:backgroundTint="#4B5EFC" />
@@ -257,11 +261,12 @@
                 android:layout_width="71dp"
                 android:layout_height="72dp"
                 android:layout_weight="1"
-                android:text="."
+                android:text="@string/point"
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:backgroundTint="#FFFFFF" />
+                app:backgroundTint="#FFFFFF"
+                tools:ignore="NestedWeights" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/zero"
@@ -279,7 +284,7 @@
                 android:id="@+id/backspace"
                 android:layout_width="71dp"
                 android:layout_height="72dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="32sp"
@@ -291,7 +296,7 @@
                 android:layout_width="71dp"
                 android:layout_height="72dp"
                 android:layout_weight="1"
-                android:text="="
+                android:text="@string/equal"
                 android:textSize="32sp"
                 android:textColor="@color/black"
                 app:backgroundTint="#4B5EFC" />
