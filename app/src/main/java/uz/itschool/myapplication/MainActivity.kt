@@ -147,8 +147,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         var i = 0
         var temp = 0f
 
+        Log.d("TAG", resList.toString())
 
-        while (resList.contains('x') || resList.contains('/') || resList.contains('+') || resList.contains('-')){
+        while (resList.contains('x') || resList.contains('/')){
             if (resList[i] == 'x'){
                 temp = resList[i-1].toString().toFloat() * resList[i+1].toString().toFloat()
                 resList.add(i-1,temp)
@@ -163,6 +164,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                 resList.removeAt(i)
                 i -= 2
             }
+            i++
+            temp = 0f
+        }
+
+        while (resList.contains('+') || resList.contains('-')){
             if (resList[i] == '+'){
                 temp = resList[i-1].toString().toFloat() + resList[i+1].toString().toFloat()
                 resList.add(i-1,temp)
@@ -177,8 +183,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                 resList.removeAt(i)
                 i -= 2
             }
-            i++
-            temp = 0f
         }
 
 
@@ -200,25 +204,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         isPoint = true
     }
 
-    fun createArray(s:String):MutableList<Any>{
+    private fun createArray(s:String):MutableList<Any>{
         var list = mutableListOf<Any>()
-        var temp = ""
+        var temp:String? = null
         for (i in s){
             if (i.isDigit() || i == '.'){
                 temp+=i
             }
             else{
-                list.add(temp)
+                list.add(temp!!)
                 list.add(i)
-                temp = ""
+                temp = null
             }
         }
-        if (temp.isEmpty()){
+        if (temp!!.isEmpty()){
             list.add(temp)
         }
-
-        Log.d("TAG", list.toString())
-
+        
         return list
     }
 }
